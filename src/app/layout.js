@@ -2,7 +2,6 @@ import { Bricolage_Grotesque, Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { MotionProvider } from "@/components/motion-provider";
-import { Cursor } from "@/components/cursor";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 
@@ -86,7 +85,6 @@ export default function RootLayout({ children }) {
       <body className="min-h-full cursor-default bg-paper font-sans text-ink">
         <ThemeProvider>
           <MotionProvider>
-            <Cursor />
             <Nav />
             <main id="top">{children}</main>
             <Footer />

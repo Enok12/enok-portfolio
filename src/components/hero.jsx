@@ -1,8 +1,14 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowDown, ArrowUpRight, FileArrowDown } from "@phosphor-icons/react";
-import { profile } from "@/lib/data";
+import {
+  ArrowUpRight,
+  FileArrowDown,
+  Code,
+  CaretLeft,
+  CaretRight,
+} from "@phosphor-icons/react";
+import { profile, stats } from "@/lib/data";
 import { useMediaQuery } from "@/lib/use-media-query";
 
 const container = {
@@ -25,110 +31,142 @@ const fade = {
   show: { y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
 };
 
+const headline = [
+  { text: "Building Scalable", accent: false },
+  { text: "Web Applications", accent: true },
+  { text: "That Help Businesses Grow.", accent: false },
+];
+
 export function Hero() {
-  const animateBlobs = useMediaQuery("(min-width: 768px)");
+  const animateBlob = useMediaQuery("(min-width: 768px)");
 
   return (
-    <section className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20">
+    <section className="relative overflow-hidden pt-32 pb-16 md:pt-40">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <m.div
-          animate={animateBlobs ? { x: [0, 40, 0], y: [0, 30, 0] } : undefined}
-          transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 right-[-10%] h-152 w-152 rounded-full bg-accent/25 blur-[140px]"
+          animate={animateBlob ? { x: [0, 30, 0], y: [0, 20, 0] } : undefined}
+          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-32 right-[-15%] h-140 w-140 rounded-full bg-accent/15 blur-[150px]"
         />
-        <m.div
-          animate={animateBlobs ? { x: [0, -30, 0], y: [0, -20, 0] } : undefined}
-          transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-20%] left-[-10%] h-120 w-120 rounded-full bg-ink/6 blur-[120px] dark:bg-white/6"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[64px_64px] opacity-[0.35]" />
+        <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[64px_64px] opacity-[0.3]" />
       </div>
 
-      <div className="container-edge">
-        <m.p
-          variants={fade}
-          initial="hidden"
-          animate="show"
-          className="mb-8 flex items-center gap-3 font-mono text-xs uppercase tracking-[0.25em] text-muted"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-          {profile.title}
-        </m.p>
+      <div className="container-edge grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <m.div
+            variants={fade}
+            initial="hidden"
+            animate="show"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-line px-4 py-1.5 font-mono text-xs text-muted"
+          >
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+            </span>
+            {profile.availability}
+          </m.div>
 
-        <m.h1
-          variants={container}
-          initial="hidden"
-          animate="show"
-          className="font-display text-[clamp(2.6rem,7.5vw,7rem)] font-medium leading-[0.98] tracking-tight text-balance"
-        >
-          {["Building Digital", "Experiences That", "Solve Real Problems."].map(
-            (text) => (
-              <span key={text} className="block overflow-hidden">
-                <m.span variants={line} className="block">
-                  {text}
+          <m.h1
+            variants={container}
+            initial="hidden"
+            animate="show"
+            className="font-display text-[clamp(2.4rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-balance"
+          >
+            {headline.map((item) => (
+              <span key={item.text} className="block overflow-hidden">
+                <m.span
+                  variants={line}
+                  className={`block ${item.accent ? "text-accent" : ""}`}
+                >
+                  {item.text}
                 </m.span>
               </span>
-            )
-          )}
-        </m.h1>
+            ))}
+          </m.h1>
 
-        <m.p
-          variants={fade}
-          initial="hidden"
-          animate="show"
-          transition={{ delay: 0.55 }}
-          className="mt-8 max-w-xl text-lg leading-relaxed text-muted md:text-xl"
-        >
-          Software Engineer specializing in modern web applications,
-          automation systems, and scalable digital solutions.
-        </m.p>
+          <m.p
+            variants={fade}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 0.5 }}
+            className="mt-7 max-w-xl text-base leading-relaxed text-muted md:text-lg"
+          >
+            {profile.intro}
+          </m.p>
+
+          <m.div
+            variants={fade}
+            initial="hidden"
+            animate="show"
+            transition={{ delay: 0.65 }}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-accent-ink transition-transform hover:-translate-y-0.5"
+            >
+              View My Work
+              <ArrowUpRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              className="group inline-flex items-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              Download Resume
+              <FileArrowDown size={16} />
+            </a>
+          </m.div>
+        </div>
 
         <m.div
           variants={fade}
           initial="hidden"
           animate="show"
-          transition={{ delay: 0.7 }}
-          className="mt-12 flex flex-wrap items-center gap-4"
+          transition={{ delay: 0.3 }}
+          className="lg:col-span-5"
         >
-          <a
-            href="#work"
-            data-cursor-hover
-            className="group inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-medium text-paper transition-transform hover:-translate-y-0.5"
-          >
-            View Projects
-            <ArrowUpRight
-              size={16}
-              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            />
-          </a>
-          <a
-            href="/resume.pdf"
-            download
-            data-cursor-hover
-            className="group inline-flex items-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-medium transition-colors hover:border-ink"
-          >
-            Download Resume
-            <FileArrowDown size={16} />
-          </a>
-          <a
-            href="#contact"
-            data-cursor-hover
-            className="inline-flex items-center gap-2 px-2 py-3.5 text-sm font-medium text-muted transition-colors hover:text-ink"
-          >
-            Contact Me
-          </a>
+          <div className="glass-panel glow-accent relative aspect-square overflow-hidden rounded-3xl">
+            <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <Code size={140} weight="thin" className="text-accent/30" />
+            </div>
+
+            <div className="glass-panel absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-xl px-4 py-3">
+              <div>
+                <p className="text-sm font-medium">Building Digital</p>
+                <p className="text-xs text-muted">Solutions for a Better Tomorrow</p>
+              </div>
+              <div className="flex items-center gap-1.5 text-muted">
+                <CaretLeft size={14} />
+                <CaretRight size={14} />
+              </div>
+            </div>
+          </div>
         </m.div>
       </div>
 
-      <div className="container-edge mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted">
-        <m.span
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ArrowDown size={14} />
-        </m.span>
-        Scroll to explore
-      </div>
+      <m.div
+        variants={fade}
+        initial="hidden"
+        animate="show"
+        transition={{ delay: 0.75 }}
+        className="container-edge mt-16"
+      >
+        <div className="glass-panel grid grid-cols-2 divide-x divide-line rounded-2xl sm:grid-cols-4 sm:divide-y-0">
+          {stats.map((stat) => (
+            <div key={stat.label} className="px-6 py-6 text-center first:border-l-0">
+              <p className="font-display text-2xl font-semibold text-accent sm:text-3xl">
+                {stat.value}
+              </p>
+              <p className="mt-1 text-xs text-muted">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </m.div>
     </section>
   );
 }

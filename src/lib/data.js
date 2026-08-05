@@ -6,14 +6,15 @@ export const profile = {
   github: "https://github.com/Enok12",
   linkedin: "https://linkedin.com/in/enok-dilshan",
   intro:
-    "A Software Engineer passionate about building scalable web applications, automation solutions, and modern digital experiences.",
+    "Software Engineer specializing in modern web applications, business systems, and digital platforms. I transform ideas into reliable, high-performance solutions.",
+  availability: "Available for new opportunities",
 };
 
 export const stats = [
   { value: "4+", label: "Years Experience" },
-  { value: "01", label: "Full Stack Developer" },
-  { value: "05+", label: "Production Applications" },
-  { value: "BSc", label: "Software Engineering Graduate" },
+  { value: "5+", label: "Production Applications" },
+  { value: "1", label: "Full Stack Developer" },
+  { value: "1st Class", label: "Software Engineering Degree" },
 ];
 
 export const experience = [
@@ -48,8 +49,10 @@ export const projects = [
     year: "2024",
     status: "Ongoing Development",
     stack: ["Next.js", "Prisma", "Neon PostgreSQL", "Vercel"],
-    description:
-      "A full-stack marketplace platform designed for gemstone trading with scalable architecture, secure authentication, and optimized user workflows.",
+    problem:
+      "Gemstone traders needed a secure, reliable way to list and sell inventory online without relying on informal channels.",
+    solution:
+      "A full-stack marketplace platform with scalable architecture, secure authentication, and optimized user workflows for listing and trading.",
     href: "https://gemmarket.vercel.app",
     number: "01",
   },
@@ -60,8 +63,10 @@ export const projects = [
     year: "2024",
     status: "Ongoing Development",
     stack: ["React", "Vercel", "Modern UI Components"],
-    description:
-      "A responsive digital platform created to establish a modern online presence for Cambodian gem traders.",
+    problem:
+      "The business needed a modern, credible digital presence to reach customers beyond word-of-mouth.",
+    solution:
+      "A responsive, fast-loading platform built with React, establishing a professional online presence with an intuitive, conversion-focused layout.",
     href: "https://cgt.onl",
     number: "02",
   },
@@ -72,19 +77,38 @@ export const projects = [
     year: "—",
     status: "Coming Soon",
     stack: [],
-    description:
+    problem: "",
+    solution:
       "A new build is taking shape. Check back soon for the next case study.",
     href: null,
     number: "03",
   },
 ];
 
-export const skills = {
-  Languages: ["JavaScript", "PHP", "C#", "Java"],
-  Frameworks: ["React", "Next.js", "Laravel", "Tailwind CSS", "Bootstrap"],
+export const techCategories = {
+  Frontend: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Bootstrap"],
+  Backend: ["PHP", "Laravel", "C#", "Java"],
   Database: ["PostgreSQL", "MySQL", "MongoDB", "Prisma"],
-  Tools: ["Vercel", "Neon", "GitHub Copilot", "Claude", "WordPress"],
+  "Cloud & Tools": ["Vercel", "Neon", "GitHub Copilot", "WordPress"],
 };
+
+export const services = [
+  {
+    title: "Web Applications",
+    description:
+      "Building modern, responsive, and scalable web applications tailored to your needs.",
+  },
+  {
+    title: "Business Systems",
+    description:
+      "Developing efficient internal systems that automate processes and improve productivity.",
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "Turning manual, paper-based processes into reliable digital workflows.",
+  },
+];
 
 export const education = {
   school: "Cardiff Metropolitan University",

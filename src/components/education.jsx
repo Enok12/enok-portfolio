@@ -7,14 +7,14 @@ export function Education() {
     <section id="education" className="border-t border-line py-28 md:py-36">
       <div className="container-edge">
         <Reveal>
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-            05 — Education
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+            06 — Education
           </span>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8">
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           <Reveal delay={0.1}>
-            <div className="flex h-full flex-col justify-between rounded-2xl border border-line p-8 md:p-10">
+            <div className="glass-panel flex h-full flex-col justify-between rounded-2xl p-8 md:p-10">
               <GraduationCap size={28} className="text-accent" weight="light" />
               <div className="mt-10">
                 <h3 className="font-display text-2xl font-medium tracking-tight md:text-3xl">
@@ -30,7 +30,7 @@ export function Education() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="flex h-full flex-col justify-between rounded-2xl border border-line p-8 md:p-10">
+            <div className="glass-panel flex h-full flex-col justify-between rounded-2xl p-8 md:p-10">
               <SealCheck size={28} className="text-accent" weight="light" />
               <div className="mt-10">
                 {certifications.map((cert) => (

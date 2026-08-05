@@ -2,24 +2,24 @@
 
 :root {
   --ink: #0d0d0e;
-  --paper: #f7f5f0;
+  --paper: #fafafa;
   --surface: #ffffff;
-  --surface-muted: #eeece5;
-  --line: rgba(13, 13, 14, 0.12);
-  --muted: #6b6a64;
-  --accent: #cbff4d;
-  --accent-ink: #0d0d0e;
+  --surface-muted: #f0f0ef;
+  --line: rgba(13, 13, 14, 0.1);
+  --muted: #65645c;
+  --accent: #7ed100;
+  --accent-ink: #050505;
 }
 
 :root[data-theme="dark"] {
-  --ink: #f7f5f0;
-  --paper: #0b0b0c;
-  --surface: #131314;
-  --surface-muted: #19191a;
-  --line: rgba(247, 245, 240, 0.14);
-  --muted: #9a988f;
-  --accent: #cbff4d;
-  --accent-ink: #0d0d0e;
+  --ink: #f5f5f5;
+  --paper: #050505;
+  --surface: #0d0d0d;
+  --surface-muted: #121212;
+  --line: rgba(255, 255, 255, 0.08);
+  --muted: #9a9a9a;
+  --accent: #9eff00;
+  --accent-ink: #050505;
 }
 
 @theme inline {
@@ -91,15 +91,13 @@ body {
   background: var(--line);
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.glass-panel {
+  background: color-mix(in srgb, var(--surface) 60%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
 }
 
-.animate-marquee {
-  animation: marquee 28s linear infinite;
+.glow-accent {
+  box-shadow: 0 0 0 1px var(--line), 0 20px 60px -20px color-mix(in srgb, var(--accent) 35%, transparent);
 }

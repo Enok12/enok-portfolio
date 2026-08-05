@@ -2,14 +2,15 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, m } from "framer-motion";
-import { List, X } from "@phosphor-icons/react";
+import { List, X, FileArrowDown } from "@phosphor-icons/react";
 import { ThemeToggle } from "./theme-toggle";
 
 const LINKS = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#work", label: "Work" },
+  { href: "#work", label: "Projects" },
   { href: "#skills", label: "Skills" },
+  { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -39,41 +40,42 @@ export function Nav() {
     >
       <div className="container-edge hairline absolute inset-x-0 bottom-0" />
       <nav className="container-edge flex h-20 items-center justify-between">
-        <a
-          href="#top"
-          data-cursor-hover
-          className="font-display text-lg font-semibold tracking-tight"
-        >
-          Enok Dilshan
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent font-display text-sm font-bold text-accent-ink">
+            E
+          </span>
+          <span className="font-display text-lg font-semibold tracking-tight">
+            Enok Dilshan
+          </span>
         </a>
 
-        <ul className="hidden items-center gap-10 md:flex">
+        <ul className="hidden items-center gap-9 lg:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                data-cursor-hover
                 className="group relative text-sm text-muted transition-colors hover:text-ink"
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-px w-0 bg-ink transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
         </ul>
 
-        <div className="hidden items-center gap-4 md:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <ThemeToggle />
           <a
-            href="#contact"
-            data-cursor-hover
-            className="rounded-full bg-ink px-5 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-80"
+            href="/resume.pdf"
+            download
+            className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
           >
-            Let&apos;s Talk
+            Download Resume
+            <FileArrowDown size={15} />
           </a>
         </div>
 
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-3 lg:hidden">
           <ThemeToggle />
           <button
             type="button"
@@ -93,7 +95,7 @@ export function Nav() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden bg-paper md:hidden"
+            className="overflow-hidden bg-paper lg:hidden"
           >
             <ul className="container-edge flex flex-col gap-1 pb-8">
               {LINKS.map((link) => (
@@ -107,6 +109,17 @@ export function Nav() {
                   </a>
                 </li>
               ))}
+              <li className="pt-4">
+                <a
+                  href="/resume.pdf"
+                  download
+                  onClick={() => setOpen(false)}
+                  className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm font-medium"
+                >
+                  Download Resume
+                  <FileArrowDown size={15} />
+                </a>
+              </li>
             </ul>
           </m.div>
         )}

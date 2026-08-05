@@ -1,53 +1,68 @@
 import { Reveal } from "./reveal";
-import { stats } from "@/lib/data";
+import { techCategories } from "@/lib/data";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 
 export function About() {
   return (
     <section id="about" className="border-t border-line py-28 md:py-36">
       <div className="container-edge">
         <Reveal>
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-            01 — About
+          <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
+            01 — About Me
           </span>
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-8">
-          <Reveal delay={0.1} className="md:col-span-8">
-            <p className="font-display text-[clamp(1.6rem,3.2vw,2.75rem)] font-medium leading-[1.2] text-balance">
-              I&apos;m a software engineer based in Phnom Penh, Cambodia,
-              working at the intersection of{" "}
-              <span className="text-muted">IT support and development</span>{" "}
-              — I don&apos;t just build systems, I keep them running. That
-              dual perspective shapes how I write software:{" "}
-              <span className="text-muted">
-                practical, resilient, and built to reduce friction for the
-                people who use it every day.
-              </span>
+        <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
+          <Reveal delay={0.1} className="md:col-span-5">
+            <h2 className="font-display text-[clamp(1.8rem,3.5vw,3rem)] font-semibold leading-[1.1] tracking-tight text-balance">
+              Turning Ideas into Real Impact
+            </h2>
+
+            <p className="mt-6 max-w-lg text-base leading-relaxed text-muted">
+              I&apos;m a Software Engineer based in Phnom Penh, Cambodia,
+              working at the intersection of IT support and development —
+              I don&apos;t just build systems, I keep them running. Since
+              graduating with First Class Honours from Cardiff Metropolitan
+              University, I&apos;ve combined technical expertise with a
+              practical, business-first mindset to deliver software that
+              actually reduces friction for the people who use it.
             </p>
 
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted">
-              Since graduating with First Class Honours in Software
-              Engineering from Cardiff Metropolitan University, I&apos;ve
-              worked across internal automation tools, full-stack web
-              platforms, and enterprise support — turning manual,
-              error-prone processes into reliable digital systems.
-            </p>
+            <a
+              href="#contact"
+              className="group mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-accent"
+            >
+              Get to Know Me
+              <ArrowUpRight
+                size={15}
+                className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
           </Reveal>
 
-          <Reveal delay={0.2} className="md:col-span-4 md:justify-self-end">
-            <dl className="grid grid-cols-2 gap-x-6 gap-y-10">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd className="font-display text-4xl font-medium tracking-tight">
-                    {stat.value}
-                  </dd>
-                  <p className="mt-2 text-xs uppercase tracking-[0.15em] text-muted">
-                    {stat.label}
+          <Reveal delay={0.2} className="md:col-span-7">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              {Object.entries(techCategories).map(([category, list]) => (
+                <div
+                  key={category}
+                  className="glass-panel rounded-2xl p-5"
+                >
+                  <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted">
+                    {category}
                   </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {list.map((tech) => (
+                      <span
+                        key={tech}
+                        className="rounded-full border border-line px-3 py-1 text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
-            </dl>
+            </div>
           </Reveal>
         </div>
       </div>
