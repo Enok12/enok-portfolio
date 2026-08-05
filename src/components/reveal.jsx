@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function Reveal({
   children,
@@ -9,7 +9,7 @@ export function Reveal({
   y = 28,
   as: Component = "div",
 }) {
-  const MotionComponent = motion[Component] ?? motion.div;
+  const MotionComponent = m[Component] ?? m.div;
   return (
     <MotionComponent
       className={className}

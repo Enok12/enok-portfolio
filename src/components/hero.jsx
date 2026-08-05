@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowDown, ArrowUpRight, FileArrowDown } from "@phosphor-icons/react";
 import { profile } from "@/lib/data";
+import { useMediaQuery } from "@/lib/use-media-query";
 
 const container = {
   hidden: {},
@@ -25,24 +26,26 @@ const fade = {
 };
 
 export function Hero() {
+  const animateBlobs = useMediaQuery("(min-width: 768px)");
+
   return (
     <section className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden pt-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <motion.div
-          animate={{ x: [0, 40, 0], y: [0, 30, 0] }}
+        <m.div
+          animate={animateBlobs ? { x: [0, 40, 0], y: [0, 30, 0] } : undefined}
           transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 right-[-10%] h-[38rem] w-[38rem] rounded-full bg-accent/25 blur-[140px]"
+          className="absolute -top-40 right-[-10%] h-152 w-152 rounded-full bg-accent/25 blur-[140px]"
         />
-        <motion.div
-          animate={{ x: [0, -30, 0], y: [0, -20, 0] }}
+        <m.div
+          animate={animateBlobs ? { x: [0, -30, 0], y: [0, -20, 0] } : undefined}
           transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-[-20%] left-[-10%] h-[30rem] w-[30rem] rounded-full bg-ink/[0.06] blur-[120px] dark:bg-white/[0.06]"
+          className="absolute bottom-[-20%] left-[-10%] h-120 w-120 rounded-full bg-ink/6 blur-[120px] dark:bg-white/6"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-[size:64px_64px] opacity-[0.35]" />
+        <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[64px_64px] opacity-[0.35]" />
       </div>
 
       <div className="container-edge">
-        <motion.p
+        <m.p
           variants={fade}
           initial="hidden"
           animate="show"
@@ -50,9 +53,9 @@ export function Hero() {
         >
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           {profile.title}
-        </motion.p>
+        </m.p>
 
-        <motion.h1
+        <m.h1
           variants={container}
           initial="hidden"
           animate="show"
@@ -61,15 +64,15 @@ export function Hero() {
           {["Building Digital", "Experiences That", "Solve Real Problems."].map(
             (text) => (
               <span key={text} className="block overflow-hidden">
-                <motion.span variants={line} className="block">
+                <m.span variants={line} className="block">
                   {text}
-                </motion.span>
+                </m.span>
               </span>
             )
           )}
-        </motion.h1>
+        </m.h1>
 
-        <motion.p
+        <m.p
           variants={fade}
           initial="hidden"
           animate="show"
@@ -78,9 +81,9 @@ export function Hero() {
         >
           Software Engineer specializing in modern web applications,
           automation systems, and scalable digital solutions.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           variants={fade}
           initial="hidden"
           animate="show"
@@ -114,23 +117,23 @@ export function Hero() {
           >
             Contact Me
           </a>
-        </motion.div>
+        </m.div>
       </div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.8 }}
         className="container-edge mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted"
       >
-        <motion.span
+        <m.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
         >
           <ArrowDown size={14} />
-        </motion.span>
+        </m.span>
         Scroll to explore
-      </motion.div>
+      </m.div>
     </section>
   );
 }

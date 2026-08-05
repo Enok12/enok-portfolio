@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import { Reveal } from "./reveal";
 import { projects } from "@/lib/data";
@@ -69,7 +69,7 @@ function ProjectCard({ project, index }) {
         </div>
 
         <div className="order-1 md:order-2 md:col-span-7">
-          <motion.div
+          <m.div
             whileHover={{ scale: isComingSoon ? 1 : 1.02 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line bg-surface-muted md:aspect-[16/10]"
@@ -85,7 +85,7 @@ function ProjectCard({ project, index }) {
                 <ArrowUpRight size={18} />
               </div>
             )}
-          </motion.div>
+          </m.div>
         </div>
       </Wrapper>
     </Reveal>

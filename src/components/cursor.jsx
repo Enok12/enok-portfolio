@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useSyncExternalStore } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { m, useMotionValue, useSpring } from "framer-motion";
 
 const QUERY = "(pointer: fine) and (prefers-reduced-motion: no-preference)";
 
@@ -48,12 +48,12 @@ export function Cursor() {
   if (!enabled) return null;
 
   return (
-    <motion.div
+    <m.div
       aria-hidden
       className="pointer-events-none fixed left-0 top-0 z-[100] mix-blend-difference"
       style={{ x: springX, y: springY }}
     >
-      <motion.div
+      <m.div
         animate={{
           width: hovering ? 56 : 20,
           height: hovering ? 56 : 20,
@@ -63,6 +63,6 @@ export function Cursor() {
         transition={{ type: "spring", damping: 25, stiffness: 350 }}
         className="rounded-full bg-white"
       />
-    </motion.div>
+    </m.div>
   );
 }

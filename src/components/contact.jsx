@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight, EnvelopeSimple, GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 import { Reveal } from "./reveal";
 import { profile } from "@/lib/data";
+import { useMediaQuery } from "@/lib/use-media-query";
 
 const links = [
   {
@@ -27,16 +28,18 @@ const links = [
 ];
 
 export function Contact() {
+  const animateBlob = useMediaQuery("(min-width: 768px)");
+
   return (
     <section
       id="contact"
       className="relative overflow-hidden border-t border-line py-28 md:py-40"
     >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <motion.div
-          animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+        <m.div
+          animate={animateBlob ? { x: [0, 30, 0], y: [0, 20, 0] } : undefined}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-0 h-[32rem] w-[32rem] -translate-x-1/2 rounded-full bg-accent/20 blur-[150px]"
+          className="absolute left-1/2 top-0 h-128 w-128 -translate-x-1/2 rounded-full bg-accent/20 blur-[150px]"
         />
       </div>
 
