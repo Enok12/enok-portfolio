@@ -13,7 +13,7 @@ const container = {
 };
 
 const line = {
-  hidden: { y: "110%" },
+  hidden: { y: "45%" },
   show: {
     y: "0%",
     transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
@@ -21,8 +21,8 @@ const line = {
 };
 
 const fade = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+  hidden: { y: 16 },
+  show: { y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export function Hero() {
@@ -120,12 +120,7 @@ export function Hero() {
         </m.div>
       </div>
 
-      <m.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.8 }}
-        className="container-edge mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted"
-      >
+      <div className="container-edge mt-16 flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted">
         <m.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -133,7 +128,7 @@ export function Hero() {
           <ArrowDown size={14} />
         </m.span>
         Scroll to explore
-      </m.div>
+      </div>
     </section>
   );
 }
