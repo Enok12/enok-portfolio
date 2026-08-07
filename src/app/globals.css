@@ -1,25 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #0d0d0e;
-  --paper: #fafafa;
+  --ink: #0b1220;
+  --paper: #f4f7fb;
   --surface: #ffffff;
-  --surface-muted: #f0f0ef;
-  --line: rgba(13, 13, 14, 0.1);
-  --muted: #65645c;
-  --accent: #7ed100;
-  --accent-ink: #050505;
+  --surface-muted: #e8eef6;
+  --line: #cbd5e1;
+  --muted: #47506b;
+  --accent: #2563eb;
+  --accent-ink: #ffffff;
+  --cyan: #0891b2;
+  --sky: #0284c7;
+  --accent-hover: #1d4ed8;
 }
 
 :root[data-theme="dark"] {
-  --ink: #f5f5f5;
-  --paper: #050505;
-  --surface: #0d0d0d;
-  --surface-muted: #121212;
-  --line: rgba(255, 255, 255, 0.08);
-  --muted: #9a9a9a;
-  --accent: #9eff00;
-  --accent-ink: #050505;
+  --ink: #ffffff;
+  --paper: #050b14;
+  --surface: #0d1b2e;
+  --surface-muted: #132238;
+  --line: #1e3a5f;
+  --muted: #94a3b8;
+  --accent: #2563eb;
+  --accent-ink: #ffffff;
+  --cyan: #06b6d4;
+  --sky: #38bdf8;
+  --accent-hover: #60a5fa;
 }
 
 @theme inline {
@@ -31,6 +37,9 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-ink: var(--accent-ink);
+  --color-cyan: var(--cyan);
+  --color-sky: var(--sky);
+  --color-accent-hover: var(--accent-hover);
   --font-display: var(--font-bricolage);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-mono-geist);
@@ -99,5 +108,19 @@ body {
 }
 
 .glow-accent {
-  box-shadow: 0 0 0 1px var(--line), 0 20px 60px -20px color-mix(in srgb, var(--accent) 35%, transparent);
+  box-shadow: 0 0 0 1px var(--line), 0 0 40px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.radial-glow-bg {
+  background: radial-gradient(
+      circle at 70% 30%,
+      color-mix(in srgb, var(--accent) 25%, transparent),
+      transparent 40%
+    ),
+    var(--paper);
+}
+
+.btn-gradient {
+  background-image: linear-gradient(135deg, var(--accent), var(--cyan));
+  color: #ffffff;
 }

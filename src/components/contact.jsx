@@ -1,16 +1,12 @@
-"use client";
-
-import { m } from "framer-motion";
 import {
   ArrowUpRight,
   EnvelopeSimple,
   GithubLogo,
   LinkedinLogo,
   MapPin,
-} from "@phosphor-icons/react";
+} from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "./reveal";
 import { profile } from "@/lib/data";
-import { useMediaQuery } from "@/lib/use-media-query";
 
 const links = [
   {
@@ -40,21 +36,11 @@ const links = [
 ];
 
 export function Contact() {
-  const animateBlob = useMediaQuery("(min-width: 768px)");
-
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-line py-28 md:py-40"
+      className="radial-glow-bg relative overflow-hidden border-t border-line py-28 md:py-40"
     >
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <m.div
-          animate={animateBlob ? { x: [0, 30, 0], y: [0, 20, 0] } : undefined}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute left-1/2 top-0 h-128 w-128 -translate-x-1/2 rounded-full bg-accent/15 blur-[150px]"
-        />
-      </div>
-
       <div className="container-edge">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
@@ -79,7 +65,7 @@ export function Contact() {
         <Reveal delay={0.3}>
           <a
             href={`mailto:${profile.email}`}
-            className="group mt-12 inline-flex items-center gap-3 rounded-full bg-accent px-8 py-4 text-base font-semibold text-accent-ink transition-transform hover:-translate-y-1"
+            className="btn-gradient group mt-12 inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-transform hover:-translate-y-1"
           >
             Get In Touch
             <ArrowUpRight

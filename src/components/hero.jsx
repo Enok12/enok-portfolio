@@ -9,7 +9,6 @@ import {
   CaretRight,
 } from "@phosphor-icons/react";
 import { profile, stats } from "@/lib/data";
-import { useMediaQuery } from "@/lib/use-media-query";
 
 const container = {
   hidden: {},
@@ -38,16 +37,9 @@ const headline = [
 ];
 
 export function Hero() {
-  const animateBlob = useMediaQuery("(min-width: 768px)");
-
   return (
-    <section className="relative overflow-hidden pt-32 pb-16 md:pt-40">
+    <section className="radial-glow-bg relative overflow-hidden pt-32 pb-16 md:pt-40">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <m.div
-          animate={animateBlob ? { x: [0, 30, 0], y: [0, 20, 0] } : undefined}
-          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-32 right-[-15%] h-140 w-140 rounded-full bg-accent/15 blur-[150px]"
-        />
         <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[64px_64px] opacity-[0.3]" />
       </div>
 
@@ -102,7 +94,7 @@ export function Hero() {
           >
             <a
               href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-accent-ink transition-transform hover:-translate-y-0.5"
+              className="btn-gradient group inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-transform hover:-translate-y-0.5"
             >
               View My Work
               <ArrowUpRight

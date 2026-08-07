@@ -41,7 +41,7 @@ export function Nav() {
       <div className="container-edge hairline absolute inset-x-0 bottom-0" />
       <nav className="container-edge flex h-20 items-center justify-between">
         <a href="#top" className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-accent font-display text-sm font-bold text-accent-ink">
+          <span className="btn-gradient flex h-8 w-8 items-center justify-center rounded-lg font-display text-sm font-bold">
             E
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">
