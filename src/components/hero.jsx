@@ -1,10 +1,10 @@
 "use client";
 
 import { m } from "framer-motion";
+import Image from "next/image";
 import {
   ArrowUpRight,
   FileArrowDown,
-  Code,
   CaretLeft,
   CaretRight,
 } from "@phosphor-icons/react";
@@ -120,11 +120,16 @@ export function Hero() {
           transition={{ delay: 0.3 }}
           className="lg:col-span-5"
         >
-          <div className="glass-panel glow-accent relative aspect-square overflow-hidden rounded-3xl">
+          <div className="glass-panel glow-accent relative aspect-[4/5] overflow-hidden rounded-3xl">
             <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Code size={140} weight="thin" className="text-accent/30" />
-            </div>
+            <Image
+              src="/enok-photo.png"
+              alt="Enok Dilshan"
+              fill
+              priority
+              sizes="(min-width: 1024px) 40vw, 90vw"
+              className="object-contain object-bottom"
+            />
 
             <div className="glass-panel absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-xl px-4 py-3">
               <div>
