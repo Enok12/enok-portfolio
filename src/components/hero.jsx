@@ -19,10 +19,10 @@ const container = {
 };
 
 const line = {
-  hidden: { y: "45%" },
+  hidden: { y: 28 },
   show: {
-    y: "0%",
-    transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] },
+    y: 0,
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
   },
 };
 
@@ -73,14 +73,13 @@ export function Hero() {
             className="font-display text-[clamp(2.4rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-balance"
           >
             {headline.map((item) => (
-              <span key={item.text} className="block overflow-hidden">
-                <m.span
-                  variants={line}
-                  className={`block ${item.accent ? "text-accent" : ""}`}
-                >
-                  {item.text}
-                </m.span>
-              </span>
+              <m.span
+                key={item.text}
+                variants={line}
+                className={`block ${item.accent ? "text-accent" : ""}`}
+              >
+                {item.text}
+              </m.span>
             ))}
           </m.h1>
 
