@@ -90,6 +90,13 @@ body {
   text-wrap: balance;
 }
 
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .container-edge {
   padding-left: clamp(1.25rem, 5vw, 4rem);
   padding-right: clamp(1.25rem, 5vw, 4rem);

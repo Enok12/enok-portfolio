@@ -1,7 +1,8 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { ArrowUpRight, CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { Reveal } from "./reveal";
 import { projects } from "@/lib/data";
 
@@ -82,6 +83,32 @@ function ProjectCard({ project, index }) {
 }
 
 export function Projects() {
+  const trackRef = useRef(null);
+  const [atStart, setAtStart] = useState(true);
+  const [atEnd, setAtEnd] = useState(false);
+  const canSlide = !(atStart && atEnd);
+
+  const updateEdges = useCallback(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    setAtStart(el.scrollLeft <= 4);
+    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
+  }, []);
+
+  useEffect(() => {
+    updateEdges();
+    window.addEventListener("resize", updateEdges);
+    return () => window.removeEventListener("resize", updateEdges);
+  }, [updateEdges]);
+
+  // Move by one card width (card + gap) per click
+  const slide = (dir) => {
+    const el = trackRef.current;
+    const card = el?.firstElementChild;
+    if (!card) return;
+    el.scrollBy({ left: dir * (card.offsetWidth + 24), behavior: "smooth" });
+  };
+
   return (
     <section id="work" className="border-t border-line py-28 md:py-36">
       <div className="container-edge">
@@ -99,11 +126,43 @@ export function Projects() {
               </h2>
             </Reveal>
           </div>
+
+          {canSlide && (
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                aria-label="Previous case study"
+                onClick={() => slide(-1)}
+                disabled={atStart}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-35"
+              >
+                <CaretLeft size={18} />
+              </button>
+              <button
+                type="button"
+                aria-label="Next case study"
+                onClick={() => slide(1)}
+                disabled={atEnd}
+                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-35"
+              >
+                <CaretRight size={18} />
+              </button>
+            </div>
+          )}
         </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div
+          ref={trackRef}
+          onScroll={updateEdges}
+          className="no-scrollbar mt-16 -mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth scroll-px-2 px-2 pb-2"
+        >
           {projects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
+            <div
+              key={project.slug}
+              className="w-[85%] shrink-0 snap-start sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+            >
+              <ProjectCard project={project} index={i} />
+            </div>
           ))}
         </div>
       </div>

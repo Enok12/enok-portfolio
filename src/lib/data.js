@@ -70,6 +70,20 @@ export const projects = [
     number: "02",
   },
   {
+    slug: "montra",
+    title: "MONTRA",
+    category: "Manufacturing ERP System",
+    year: "2026",
+    status: "Ongoing Development",
+    stack: ["Next.js", "Clerk Auth", "Vercel"],
+    problem:
+      "A clothing manufacturer was running production, stock, and orders across spreadsheets and paper, with no single view of the business.",
+    solution:
+      "An ERP-style platform for clothing manufacturing that brings production, inventory, and orders into one secure, role-based system.",
+    href: "https://montramanufacturing.vercel.app",
+    number: "03",
+  },
+  {
     slug: "next-case-study",
     title: "Next Case Study",
     category: "In Discovery",
@@ -80,7 +94,7 @@ export const projects = [
     solution:
       "A new build is taking shape. Check back soon for the next case study.",
     href: null,
-    number: "03",
+    number: "04",
   },
 ];
 
@@ -165,12 +179,14 @@ export const education = {
   degree: "BSc Software Engineering (Hons)",
   honor: "First Class",
   period: "2019 — 2021",
+  logo: "/logos/cardiff-met.png",
 };
 
 export const certifications = [
   {
-    name: "WordPress Development",
-    issuer: "Envicta College of Information Technology",
-    date: "Jul 2022",
+    name: "Software Quality Assurance (Automation)",
+    issuer: "SLIIT",
+    date: "2026",
+    logo: "/logos/sliit.png",
   },
 ];
