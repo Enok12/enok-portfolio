@@ -1,6 +1,14 @@
 import { Reveal } from "./reveal";
-import { techCategories } from "@/lib/data";
+import { techCategories, practices } from "@/lib/data";
 import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+
+const categories = [
+  ...Object.entries(techCategories).map(([category, list]) => [
+    category,
+    list.map((tech) => tech.name),
+  ]),
+  ...Object.entries(practices),
+];
 
 export function About() {
   return (
@@ -42,21 +50,25 @@ export function About() {
 
           <Reveal delay={0.2} className="md:col-span-7">
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {Object.entries(techCategories).map(([category, list]) => (
+              {categories.map(([category, list], i) => (
                 <div
                   key={category}
-                  className="glass-panel rounded-2xl p-5"
+                  className={`glass-panel rounded-2xl p-5 ${
+                    categories.length % 2 && i === categories.length - 1
+                      ? "sm:col-span-2"
+                      : ""
+                  }`}
                 >
                   <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted">
                     {category}
                   </p>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {list.map((tech) => (
+                    {list.map((item) => (
                       <span
-                        key={tech}
+                        key={item}
                         className="rounded-full border border-line px-3 py-1 text-xs"
                       >
-                        {tech}
+                        {item}
                       </span>
                     ))}
                   </div>

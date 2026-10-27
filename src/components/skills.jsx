@@ -1,6 +1,6 @@
 import { Reveal } from "./reveal";
 import { techCategories } from "@/lib/data";
-import { Code } from "@phosphor-icons/react/dist/ssr";
+import Image from "next/image";
 
 const allTech = Object.values(techCategories).flat();
 
@@ -22,10 +22,16 @@ export function Skills() {
 
         <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {allTech.map((tech, i) => (
-            <Reveal key={tech} delay={0.03 * i}>
+            <Reveal key={tech.name} delay={0.03 * i}>
               <div className="glass-panel flex flex-col items-center gap-3 rounded-2xl px-4 py-6 text-center transition-colors hover:border-accent/40">
-                <Code size={22} weight="light" className="text-accent" />
-                <span className="text-sm font-medium">{tech}</span>
+                <Image
+                  src={tech.logo}
+                  alt={`${tech.name} logo`}
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 object-contain"
+                />
+                <span className="text-sm font-medium">{tech.name}</span>
               </div>
             </Reveal>
           ))}

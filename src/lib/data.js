@@ -14,7 +14,6 @@ export const stats = [
   { value: "4+", label: "Years Experience" },
   { value: "5+", label: "Production Applications" },
   { value: "1", label: "Full Stack Developer" },
-  { value: "1st Class", label: "Software Engineering Degree" },
 ];
 
 export const experience = [
@@ -53,7 +52,7 @@ export const projects = [
       "Gemstone traders needed a secure, reliable way to list and sell inventory online without relying on informal channels.",
     solution:
       "A full-stack marketplace platform with scalable architecture, secure authentication, and optimized user workflows for listing and trading.",
-    href: "https://gemmarket.vercel.app",
+    href: "https://ggmp.app",
     number: "01",
   },
   {
@@ -85,11 +84,62 @@ export const projects = [
   },
 ];
 
+// Logos live in public/tech/ as PNGs
 export const techCategories = {
-  Frontend: ["React", "Next.js", "JavaScript", "Tailwind CSS", "Bootstrap"],
-  Backend: ["PHP", "Laravel", "C#", "Java"],
-  Database: ["PostgreSQL", "MySQL", "MongoDB", "Prisma"],
-  "Cloud & Tools": ["Vercel", "Neon", "GitHub Copilot", "WordPress"],
+  Frontend: [
+    { name: "React", logo: "/tech/react.png" },
+    { name: "Next.js", logo: "/tech/nextjs.png" },
+    { name: "JavaScript", logo: "/tech/javascript.png" },
+    { name: "Tailwind CSS", logo: "/tech/tailwind-css.png" },
+    { name: "Bootstrap", logo: "/tech/bootstrap.png" },
+  ],
+  Backend: [
+    { name: "PHP", logo: "/tech/php.png" },
+    { name: "Laravel", logo: "/tech/laravel.png" },
+    { name: "C#", logo: "/tech/csharp.png" },
+    { name: "Java", logo: "/tech/java.png" },
+  ],
+  Database: [
+    { name: "PostgreSQL", logo: "/tech/postgresql.png" },
+    { name: "MySQL", logo: "/tech/mysql.png" },
+    { name: "MongoDB", logo: "/tech/mongodb.png" },
+    { name: "Prisma", logo: "/tech/prisma.png" },
+  ],
+  "Testing & QA": [
+    { name: "Selenium", logo: "/tech/selenium.png" },
+    { name: "Playwright", logo: "/tech/playwright.png" },
+    { name: "REST Assured", logo: "/tech/rest-assured.png" },
+    { name: "TestNG", logo: "/tech/testng.png" },
+    { name: "JMeter", logo: "/tech/jmeter.png" },
+  ],
+  "Cloud & Tools": [
+    { name: "Vercel", logo: "/tech/vercel.png" },
+    { name: "Neon", logo: "/tech/neon.png" },
+    { name: "GitHub Copilot", logo: "/tech/github-copilot.png" },
+    { name: "WordPress", logo: "/tech/wordpress.png" },
+  ],
+};
+
+// Practices rather than tools, so they appear in About but not the logo grid
+export const practices = {
+  "QA Practices": [
+    "Page Object Model",
+    "API Testing",
+    "Web & Mobile Testing",
+    "Performance Testing",
+    "Security Testing",
+    "Regression Testing",
+    "Smoke Testing",
+    "Exploratory Testing",
+    "Boundary Value Analysis",
+    "Equivalence Partitioning",
+  ],
+  "Methodologies & AI": [
+    "Agile / Scrum",
+    "STLC",
+    "AI-Driven Test Generation",
+    "Prompt Engineering",
+  ],
 };
 
 export const services = [

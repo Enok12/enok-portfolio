@@ -4,10 +4,8 @@ import { m } from "framer-motion";
 import {
   ArrowUpRight,
   FileArrowDown,
-  Code,
-  CaretLeft,
-  CaretRight,
 } from "@phosphor-icons/react";
+import Image from "next/image";
 import { profile, stats } from "@/lib/data";
 
 const container = {
@@ -120,22 +118,21 @@ export function Hero() {
           transition={{ delay: 0.3 }}
           className="lg:col-span-5"
         >
-          <div className="glass-panel glow-accent relative aspect-square overflow-hidden rounded-3xl">
-            <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[28px_28px] opacity-40" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <Code size={140} weight="thin" className="text-accent/30" />
-            </div>
-
-            <div className="glass-panel absolute bottom-5 left-5 right-5 flex items-center justify-between rounded-xl px-4 py-3">
-              <div>
-                <p className="text-sm font-medium">Building Digital</p>
-                <p className="text-xs text-muted">Solutions for a Better Tomorrow</p>
-              </div>
-              <div className="flex items-center gap-1.5 text-muted">
-                <CaretLeft size={14} />
-                <CaretRight size={14} />
-              </div>
-            </div>
+          <div className="relative mx-auto max-w-md lg:max-w-none">
+            {/* Soft glow so the dark suit separates from the navy background */}
+            <div
+              aria-hidden
+              className="absolute inset-x-[8%] top-[12%] bottom-0 -z-10 rounded-full bg-accent/25 blur-[90px]"
+            />
+            <Image
+              src="/profile.png"
+              alt={profile.name}
+              width={936}
+              height={1254}
+              priority
+              sizes="(min-width: 1024px) 40vw, (min-width: 448px) 448px, 100vw"
+              className="h-auto w-full mask-[linear-gradient(to_bottom,black_80%,transparent)]"
+            />
           </div>
         </m.div>
       </div>
@@ -147,7 +144,7 @@ export function Hero() {
         transition={{ delay: 0.75 }}
         className="container-edge mt-16"
       >
-        <div className="glass-panel grid grid-cols-2 divide-x divide-line rounded-2xl sm:grid-cols-4 sm:divide-y-0">
+        <div className="glass-panel grid grid-cols-3 divide-x divide-line rounded-2xl">
           {stats.map((stat) => (
             <div key={stat.label} className="px-6 py-6 text-center first:border-l-0">
               <p className="font-display text-2xl font-semibold text-accent sm:text-3xl">
