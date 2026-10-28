@@ -5,7 +5,7 @@ import {
   ArrowUpRight,
   FileArrowDown,
 } from "@phosphor-icons/react";
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 import { profile, stats } from "@/lib/data";
 
 const container = {
@@ -124,12 +124,12 @@ export function Hero() {
               aria-hidden
               className="absolute inset-x-[8%] top-[12%] bottom-0 -z-10 rounded-full bg-accent/25 blur-[90px]"
             />
-            <Image
+            <BlurImage
               src="/profile.png"
               alt={profile.name}
               width={936}
               height={1254}
-              preload
+              loading="eager"
               sizes="(min-width: 1024px) 40vw, (min-width: 448px) 448px, 100vw"
               className="h-auto w-full mask-[linear-gradient(to_bottom,black_80%,transparent)]"
             />

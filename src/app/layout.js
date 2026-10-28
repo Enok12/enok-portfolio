@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { MotionProvider } from "@/components/motion-provider";
 import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
+import { BLUR_IMAGE_SCRIPT } from "@/components/blur-image";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -83,6 +84,10 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className={`${bricolage.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Runs before any image loads; see BlurImage */}
+        <script dangerouslySetInnerHTML={{ __html: BLUR_IMAGE_SCRIPT }} />
+      </head>
       {/* Extensions (e.g. ColorZilla) inject attributes on <body> before hydration */}
       <body
         suppressHydrationWarning

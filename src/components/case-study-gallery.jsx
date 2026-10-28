@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 import { MagnifyingGlassPlus } from "@phosphor-icons/react";
 import { Lightbox } from "./lightbox";
 import { SliderButtons } from "./slider-buttons";
@@ -30,7 +30,7 @@ export function CaseStudyGallery({ images }) {
               image.mobile ? "aspect-9/19" : image.wide ? "aspect-2/1" : "aspect-16/10"
             }`}
           >
-            <Image
+            <BlurImage
               src={image.src}
               alt={image.alt}
               fill

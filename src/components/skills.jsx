@@ -1,6 +1,6 @@
 import { Reveal } from "./reveal";
 import { techCategories } from "@/lib/data";
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 
 const allTech = Object.values(techCategories).flat();
 
@@ -24,7 +24,7 @@ export function Skills() {
           {allTech.map((tech, i) => (
             <Reveal key={tech.name} delay={0.03 * i}>
               <div className="glass-panel flex flex-col items-center gap-3 rounded-2xl px-4 py-6 text-center transition-colors hover:border-accent/40">
-                <Image
+                <BlurImage
                   src={tech.logo}
                   alt={`${tech.name} logo`}
                   width={40}

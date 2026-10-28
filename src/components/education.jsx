@@ -1,6 +1,6 @@
 import { Reveal } from "./reveal";
 import { education, certifications } from "@/lib/data";
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 
 // Both logos are dark-on-white, so they sit on a white tile to stay legible.
 // Rendered at their exact display size (56px tall, width from the logo's
@@ -8,7 +8,12 @@ import Image from "next/image";
 function Logo({ src, alt, width }) {
   return (
     <div className="flex h-20 w-fit items-center rounded-xl bg-white px-5 py-3">
-      <Image src={src} alt={`${alt} logo`} width={width} height={56} />
+      <BlurImage
+        src={src}
+        alt={`${alt} logo`}
+        width={width}
+        height={56}
+      />
     </div>
   );
 }

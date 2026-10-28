@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 import { AnimatePresence, m } from "framer-motion";
 import { CaretLeft, CaretRight, X } from "@phosphor-icons/react";
 import { useMounted } from "@/lib/use-mounted";
@@ -109,7 +109,7 @@ export function Lightbox({ images, index, onClose, onChange }) {
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className="absolute inset-0 px-4 pb-4 sm:px-20"
               >
-                <Image
+                <BlurImage
                   src={image.src}
                   alt={image.alt}
                   fill

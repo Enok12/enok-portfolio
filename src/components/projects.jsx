@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 import Link from "next/link";
 import { m } from "framer-motion";
 import { ArrowUpRight } from "@phosphor-icons/react";
@@ -31,7 +31,7 @@ function ProjectCard({ project, index }) {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0"
             >
-              <Image
+              <BlurImage
                 src={thumbnail}
                 alt={`${project.title} preview`}
                 fill

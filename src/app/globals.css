@@ -90,6 +90,43 @@ body {
   text-wrap: balance;
 }
 
+/* Image loading effect, see src/components/blur-image.jsx.
+   While loading: the image's own pixels are pushed out of its box (so a
+   half-downloaded image never shows) and its blurred preview pulses in
+   brightness. Once loaded: the full image fades in all at once. */
+[data-blur-img] img.blur-img:not([data-loaded]) {
+  object-position: -99999px -99999px;
+  background-image: var(--blur-preview);
+  background-size: cover;
+  background-position: var(--blur-position, center);
+  background-repeat: no-repeat;
+  animation: blur-img-pulse 1.6s ease-in-out infinite;
+}
+
+/* `backwards` (not `both`) hands transform/filter back to the element's
+   own styles afterwards, so hover effects like scale keep working */
+[data-blur-img] img.blur-img[data-loaded] {
+  animation: blur-img-reveal 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes blur-img-pulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.45);
+  }
+}
+
+@keyframes blur-img-reveal {
+  from {
+    opacity: 0;
+    filter: blur(14px) brightness(1.4);
+    transform: scale(1.03);
+  }
+}
+
 @utility no-scrollbar {
   scrollbar-width: none;
   &::-webkit-scrollbar {

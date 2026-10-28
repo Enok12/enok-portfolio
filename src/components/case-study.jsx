@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { BlurImage } from "./blur-image";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -105,11 +105,13 @@ function TechChip({ name }) {
   return (
     <li className="glass-panel flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm">
       {logo && (
-        <Image
+        <BlurImage
           src={logo}
           alt=""
-          width={20}
-          height={20}
+          // Declared at 40px (the files are 128px) and shrunk by CSS:
+          // next/image warns about placeholders on anything under 40x40
+          width={40}
+          height={40}
           unoptimized
           className="h-5 w-5 object-contain"
         />
@@ -130,11 +132,11 @@ function DeviceMockup({ devices, title }) {
       <div className="rounded-t-xl border border-line bg-surface p-2 shadow-2xl shadow-black/40">
         <div className="relative aspect-16/10 overflow-hidden rounded-md bg-surface-muted">
           {devices.desktop ? (
-            <Image
+            <BlurImage
               src={devices.desktop}
               alt={`${title} on desktop`}
               fill
-              preload
+              loading="eager"
               sizes="(min-width: 1024px) 560px, 90vw"
               className="object-cover object-top"
             />
@@ -154,7 +156,7 @@ function DeviceMockup({ devices, title }) {
       {devices.mobile && (
         <div className="absolute bottom-0 left-0 w-[28%] min-w-24 rounded-[1.4rem] border border-line bg-surface p-1.5 shadow-2xl shadow-black/50">
           <div className="relative aspect-9/19 overflow-hidden rounded-[1.1rem]">
-            <Image
+            <BlurImage
               src={devices.mobile}
               alt={`${title} on mobile`}
               fill
