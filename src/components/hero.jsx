@@ -129,7 +129,7 @@ export function Hero() {
               alt={profile.name}
               width={936}
               height={1254}
-              priority
+              preload
               sizes="(min-width: 1024px) 40vw, (min-width: 448px) 448px, 100vw"
               className="h-auto w-full mask-[linear-gradient(to_bottom,black_80%,transparent)]"
             />

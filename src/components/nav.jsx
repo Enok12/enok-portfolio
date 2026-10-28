@@ -1,17 +1,19 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, m } from "framer-motion";
 import { List, X, FileArrowDown } from "@phosphor-icons/react";
 import { ThemeToggle } from "./theme-toggle";
 
+// Root-relative so the links also work from case study pages
 const LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#work", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#services", label: "Services" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#about", label: "About" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#work", label: "Projects" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#services", label: "Services" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -40,14 +42,14 @@ export function Nav() {
     >
       <div className="container-edge hairline absolute inset-x-0 bottom-0" />
       <nav className="container-edge flex h-20 items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5">
+        <Link href="/#top" className="flex items-center gap-2.5">
           <span className="btn-gradient flex h-8 w-8 items-center justify-center rounded-lg font-display text-sm font-bold">
             E
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">
             Enok Dilshan
           </span>
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-9 lg:flex">
           {LINKS.map((link) => (

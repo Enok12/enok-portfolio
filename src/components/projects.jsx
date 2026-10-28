@@ -1,22 +1,20 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { m } from "framer-motion";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowUpRight, CaretLeft, CaretRight } from "@phosphor-icons/react";
+import { ArrowUpRight } from "@phosphor-icons/react";
 import { Reveal } from "./reveal";
+import { SliderButtons } from "./slider-buttons";
 import { projects } from "@/lib/data";
+import { useSlider } from "@/lib/use-slider";
 
 function ProjectCard({ project, index }) {
-  const isComingSoon = !project.href;
+  const isComingSoon = !project.detail;
+  const thumbnail = project.detail?.devices?.desktop;
 
-  const Wrapper = isComingSoon ? "div" : "a";
-  const wrapperProps = isComingSoon
-    ? {}
-    : {
-        href: project.href,
-        target: "_blank",
-        rel: "noopener noreferrer",
-      };
+  const Wrapper = isComingSoon ? "div" : Link;
+  const wrapperProps = isComingSoon ? {} : { href: `/projects/${project.slug}` };
 
   return (
     <Reveal delay={0.08 * index} className="h-full">
@@ -26,18 +24,32 @@ function ProjectCard({ project, index }) {
           isComingSoon ? "opacity-60" : ""
         }`}
       >
-        <m.div
-          whileHover={{ scale: isComingSoon ? 1 : 1.03 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative aspect-16/10 overflow-hidden border-b border-line bg-surface-muted"
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="font-display text-6xl font-semibold text-accent/25">
-              {project.title.charAt(0)}
-            </span>
-          </div>
-          <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[24px_24px] opacity-40" />
-        </m.div>
+        <div className="relative aspect-16/10 overflow-hidden border-b border-line bg-surface-muted">
+          {thumbnail ? (
+            <m.div
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={thumbnail}
+                alt={`${project.title} preview`}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 85vw"
+                className="object-cover object-top"
+              />
+            </m.div>
+          ) : (
+            <>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="font-display text-6xl font-semibold text-accent/25">
+                  {project.title.charAt(0)}
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[24px_24px] opacity-40" />
+            </>
+          )}
+        </div>
 
         <div className="flex flex-1 flex-col p-6">
           <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
@@ -83,31 +95,7 @@ function ProjectCard({ project, index }) {
 }
 
 export function Projects() {
-  const trackRef = useRef(null);
-  const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
-  const canSlide = !(atStart && atEnd);
-
-  const updateEdges = useCallback(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    setAtStart(el.scrollLeft <= 4);
-    setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
-  }, []);
-
-  useEffect(() => {
-    updateEdges();
-    window.addEventListener("resize", updateEdges);
-    return () => window.removeEventListener("resize", updateEdges);
-  }, [updateEdges]);
-
-  // Move by one card width (card + gap) per click
-  const slide = (dir) => {
-    const el = trackRef.current;
-    const card = el?.firstElementChild;
-    if (!card) return;
-    el.scrollBy({ left: dir * (card.offsetWidth + 24), behavior: "smooth" });
-  };
+  const { trackRef, updateEdges, slide, atStart, atEnd } = useSlider();
 
   return (
     <section id="work" className="border-t border-line py-28 md:py-36">
@@ -127,28 +115,12 @@ export function Projects() {
             </Reveal>
           </div>
 
-          {canSlide && (
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                aria-label="Previous case study"
-                onClick={() => slide(-1)}
-                disabled={atStart}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-35"
-              >
-                <CaretLeft size={18} />
-              </button>
-              <button
-                type="button"
-                aria-label="Next case study"
-                onClick={() => slide(1)}
-                disabled={atEnd}
-                className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line transition-colors hover:border-accent hover:text-accent disabled:pointer-events-none disabled:opacity-35"
-              >
-                <CaretRight size={18} />
-              </button>
-            </div>
-          )}
+          <SliderButtons
+            slide={slide}
+            atStart={atStart}
+            atEnd={atEnd}
+            label="case study"
+          />
         </div>
 
         <div
