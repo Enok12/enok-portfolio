@@ -80,9 +80,14 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${bricolage.variable} ${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full cursor-default bg-paper font-sans text-ink">
+      {/* Extensions (e.g. ColorZilla) inject attributes on <body> before hydration */}
+      <body
+        suppressHydrationWarning
+        className="min-h-full cursor-default bg-paper font-sans text-ink"
+      >
         <ThemeProvider>
           <MotionProvider>
             <Nav />

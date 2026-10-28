@@ -95,7 +95,8 @@ function ProjectCard({ project, index }) {
 }
 
 export function Projects() {
-  const { trackRef, updateEdges, slide, atStart, atEnd } = useSlider();
+  const { trackRef, updateEdges, slide, atStart, atEnd, dragHandlers, trackClassName } =
+    useSlider();
 
   return (
     <section id="work" className="border-t border-line py-28 md:py-36">
@@ -126,7 +127,8 @@ export function Projects() {
         <div
           ref={trackRef}
           onScroll={updateEdges}
-          className="no-scrollbar mt-16 -mx-2 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth scroll-px-2 px-2 pb-2"
+          {...dragHandlers}
+          className={`no-scrollbar mt-16 -mx-2 flex snap-x gap-6 overflow-x-auto scroll-px-2 px-2 pb-2 ${trackClassName}`}
         >
           {projects.map((project, i) => (
             <div

@@ -498,6 +498,7 @@ export const education = {
   honor: "First Class",
   period: "2019 — 2021",
   logo: "/logos/cardiff-met.png",
+  logoWidth: 112, // display width at 56px tall
 };
 
 export const certifications = [
@@ -506,5 +507,6 @@ export const certifications = [
     issuer: "SLIIT",
     date: "2026",
     logo: "/logos/sliit.png",
+    logoWidth: 132, // display width at 56px tall
   },
 ];
