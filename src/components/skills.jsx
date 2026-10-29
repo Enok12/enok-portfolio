@@ -6,7 +6,7 @@ const allTech = Object.values(techCategories).flat();
 
 export function Skills() {
   return (
-    <section id="skills" className="border-t border-line py-28 md:py-36">
+    <section id="skills" className="section-screen border-t border-line">
       <div className="container-edge">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
@@ -15,15 +15,15 @@ export function Skills() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="mt-6 max-w-2xl font-display text-[clamp(1.8rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,min(4vw,6svh),3.25rem)] font-semibold leading-[1.05] tracking-tight text-balance">
             The stack behind the work.
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:mt-[5svh] lg:grid-cols-6 xl:grid-cols-8">
           {allTech.map((tech, i) => (
             <Reveal key={tech.name} delay={0.03 * i}>
-              <div className="glass-panel flex flex-col items-center gap-3 rounded-2xl px-4 py-6 text-center transition-colors hover:border-accent/40">
+              <div className="glass-panel flex flex-col items-center gap-3 rounded-2xl px-3 py-5 text-center transition-colors hover:border-accent/40">
                 <BlurImage
                   src={tech.logo}
                   alt={`${tech.name} logo`}

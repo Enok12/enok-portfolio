@@ -36,12 +36,12 @@ const headline = [
 
 export function Hero() {
   return (
-    <section className="radial-glow-bg relative overflow-hidden pt-32 pb-16 md:pt-40">
+    <section className="section-screen radial-glow-bg relative overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] bg-size-[64px_64px] opacity-[0.3]" />
       </div>
 
-      <div className="container-edge grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+      <div className="container-edge grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
         <div className="lg:col-span-7">
           <m.div
             variants={fade}
@@ -60,7 +60,7 @@ export function Hero() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="font-display text-[clamp(2.4rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-tight text-balance"
+            className="font-display text-[clamp(2.4rem,min(5.5vw,8svh),4.5rem)] font-semibold leading-[1.05] tracking-tight text-balance"
           >
             {headline.map((item) => (
               <m.span
@@ -78,7 +78,7 @@ export function Hero() {
             initial="hidden"
             animate="show"
             transition={{ delay: 0.5 }}
-            className="mt-7 max-w-xl text-base leading-relaxed text-muted md:text-lg"
+            className="mt-5 max-w-xl text-base leading-relaxed text-muted md:text-lg"
           >
             {profile.intro}
           </m.p>
@@ -88,7 +88,7 @@ export function Hero() {
             initial="hidden"
             animate="show"
             transition={{ delay: 0.65 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
+            className="mt-8 flex flex-wrap items-center gap-4"
           >
             <a
               href="#work"
@@ -131,7 +131,9 @@ export function Hero() {
               height={1254}
               loading="eager"
               sizes="(min-width: 1024px) 40vw, (min-width: 448px) 448px, 100vw"
-              className="h-auto w-full mask-[linear-gradient(to_bottom,black_80%,transparent)]"
+              // On laptops the photo's height follows the screen height so
+              // the whole hero, stats included, fits on one screen
+              className="mx-auto h-auto w-full mask-[linear-gradient(to_bottom,black_80%,transparent)] lg:h-[min(58svh,640px)] lg:w-auto"
             />
           </div>
         </m.div>
@@ -142,11 +144,11 @@ export function Hero() {
         initial="hidden"
         animate="show"
         transition={{ delay: 0.75 }}
-        className="container-edge mt-16"
+        className="container-edge mt-10 lg:mt-[4svh]"
       >
         <div className="glass-panel grid grid-cols-3 divide-x divide-line rounded-2xl">
           {stats.map((stat) => (
-            <div key={stat.label} className="px-6 py-6 text-center first:border-l-0">
+            <div key={stat.label} className="px-6 py-4 text-center first:border-l-0">
               <p className="font-display text-2xl font-semibold text-accent sm:text-3xl">
                 {stat.value}
               </p>

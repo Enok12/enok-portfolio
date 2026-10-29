@@ -12,7 +12,7 @@ const categories = [
 
 export function About() {
   return (
-    <section id="about" className="border-t border-line py-28 md:py-36">
+    <section id="about" className="section-screen border-t border-line">
       <div className="container-edge">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
@@ -20,9 +20,9 @@ export function About() {
           </span>
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-12">
+        <div className="mt-6 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
           <Reveal delay={0.1} className="md:col-span-5">
-            <h2 className="font-display text-[clamp(1.8rem,3.5vw,3rem)] font-semibold leading-[1.1] tracking-tight text-balance">
+            <h2 className="font-display text-[clamp(1.8rem,min(3.5vw,5.5svh),3rem)] font-semibold leading-[1.1] tracking-tight text-balance">
               Turning Ideas into Real Impact
             </h2>
 
@@ -49,11 +49,11 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.2} className="md:col-span-7">
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {categories.map(([category, list], i) => (
                 <div
                   key={category}
-                  className={`glass-panel rounded-2xl p-5 ${
+                  className={`glass-panel rounded-2xl p-4 ${
                     categories.length % 2 && i === categories.length - 1
                       ? "sm:col-span-2"
                       : ""
@@ -62,11 +62,11 @@ export function About() {
                   <p className="text-xs font-medium uppercase tracking-[0.15em] text-muted">
                     {category}
                   </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
+                  <div className="mt-2.5 flex flex-wrap gap-1.5">
                     {list.map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-line px-3 py-1 text-xs"
+                        className="rounded-full border border-line px-2.5 py-0.5 text-xs"
                       >
                         {item}
                       </span>

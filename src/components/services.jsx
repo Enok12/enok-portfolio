@@ -6,7 +6,7 @@ const ICONS = [Globe, Buildings, ArrowsClockwise];
 
 export function Services() {
   return (
-    <section id="services" className="border-t border-line py-28 md:py-36">
+    <section id="services" className="section-screen border-t border-line">
       <div className="container-edge">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
@@ -15,12 +15,12 @@ export function Services() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="mt-6 max-w-2xl font-display text-[clamp(1.8rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+          <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,min(4vw,6svh),3.25rem)] font-semibold leading-[1.05] tracking-tight text-balance">
             What I Can Help With
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 lg:mt-[5svh]">
           {services.map((service, i) => {
             const Icon = ICONS[i] ?? Globe;
             return (

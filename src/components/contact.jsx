@@ -39,7 +39,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="radial-glow-bg relative overflow-hidden border-t border-line py-28 md:py-40"
+      className="section-screen radial-glow-bg relative overflow-hidden border-t border-line"
     >
       <div className="container-edge">
         <Reveal>
@@ -49,14 +49,14 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h2 className="mt-8 max-w-3xl font-display text-[clamp(2.2rem,6vw,5rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+          <h2 className="mt-5 max-w-3xl font-display text-[clamp(2.2rem,min(6vw,8.5svh),5rem)] font-semibold leading-[1.05] tracking-tight text-balance">
             Let&apos;s Build Something{" "}
             <span className="text-accent">Great Together</span>
           </h2>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
             Have a project in mind or want to work together? Feel free to
             reach out — I&apos;d love to help.
           </p>
@@ -65,7 +65,7 @@ export function Contact() {
         <Reveal delay={0.3}>
           <a
             href={`mailto:${profile.email}`}
-            className="btn-gradient group mt-12 inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-transform hover:-translate-y-1"
+            className="btn-gradient group mt-8 inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-semibold transition-transform hover:-translate-y-1"
           >
             Get In Touch
             <ArrowUpRight
@@ -75,7 +75,7 @@ export function Contact() {
           </a>
         </Reveal>
 
-        <div className="mt-20 grid grid-cols-1 gap-4 border-t border-line pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-4 border-t border-line pt-8 sm:grid-cols-2 lg:mt-[7svh] lg:grid-cols-4">
           {links.map(({ label, value, href, icon: Icon }, i) => {
             const content = (
               <>

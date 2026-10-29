@@ -24,7 +24,7 @@ function ProjectCard({ project, index }) {
           isComingSoon ? "opacity-60" : ""
         }`}
       >
-        <div className="relative aspect-16/10 overflow-hidden border-b border-line bg-surface-muted">
+        <div className="relative aspect-16/10 overflow-hidden border-b border-line bg-surface-muted lg:aspect-auto lg:h-[min(23svh,260px)]">
           {thumbnail ? (
             <m.div
               whileHover={{ scale: 1.04 }}
@@ -51,7 +51,7 @@ function ProjectCard({ project, index }) {
           )}
         </div>
 
-        <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col p-6 lg:p-5">
           <p className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
             {project.category}
           </p>
@@ -99,7 +99,7 @@ export function Projects() {
     useSlider();
 
   return (
-    <section id="work" className="border-t border-line py-28 md:py-36">
+    <section id="work" className="section-screen border-t border-line">
       <div className="container-edge">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -110,7 +110,7 @@ export function Projects() {
             </Reveal>
 
             <Reveal delay={0.1}>
-              <h2 className="mt-6 max-w-2xl font-display text-[clamp(1.8rem,4vw,3.25rem)] font-semibold leading-[1.05] tracking-tight text-balance">
+              <h2 className="mt-4 max-w-2xl font-display text-[clamp(1.8rem,min(4vw,6svh),3.25rem)] font-semibold leading-[1.05] tracking-tight text-balance">
                 Products, platforms, and systems I&apos;ve shipped.
               </h2>
             </Reveal>
@@ -128,7 +128,7 @@ export function Projects() {
           ref={trackRef}
           onScroll={updateEdges}
           {...dragHandlers}
-          className={`no-scrollbar mt-16 -mx-2 flex snap-x gap-6 overflow-x-auto scroll-px-2 px-2 pb-2 ${trackClassName}`}
+          className={`no-scrollbar mt-10 lg:mt-[5svh] -mx-2 flex snap-x gap-6 overflow-x-auto scroll-px-2 px-2 pb-2 ${trackClassName}`}
         >
           {projects.map((project, i) => (
             <div

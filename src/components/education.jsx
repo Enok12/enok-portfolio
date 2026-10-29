@@ -20,7 +20,7 @@ function Logo({ src, alt, width }) {
 
 export function Education() {
   return (
-    <section id="education" className="border-t border-line py-28 md:py-36">
+    <section id="education" className="section-screen border-t border-line">
       <div className="container-edge">
         <Reveal>
           <span className="font-mono text-xs uppercase tracking-[0.25em] text-accent">
@@ -28,7 +28,7 @@ export function Education() {
           </span>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:mt-[5svh]">
           <Reveal delay={0.1}>
             <div className="glass-panel flex h-full flex-col justify-between rounded-2xl p-8 md:p-10">
               <Logo

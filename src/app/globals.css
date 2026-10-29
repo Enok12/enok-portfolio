@@ -134,6 +134,37 @@ body {
   }
 }
 
+/* Home page sections: on laptops and up, each fills the screen with its
+   content centred below the fixed 5rem nav, so a section is seen whole
+   without scrolling. Phones scroll normally; there isn't room to fit. */
+.section-screen {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .section-screen {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: calc(5rem + 3svh);
+    padding-bottom: 4svh;
+    scroll-snap-align: start;
+  }
+
+  /* Each scroll settles on the next section. Only pages built from
+     screen-sized sections (the home page) snap; case studies scroll freely.
+     The footer is a stop of its own so it stays reachable. */
+  html:has(.section-screen) {
+    scroll-snap-type: y mandatory;
+  }
+
+  html:has(.section-screen) footer {
+    scroll-snap-align: end;
+  }
+}
+
 .container-edge {
   padding-left: clamp(1.25rem, 5vw, 4rem);
   padding-right: clamp(1.25rem, 5vw, 4rem);
