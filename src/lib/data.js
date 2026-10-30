@@ -115,69 +115,6 @@ export const projects = [
     },
   },
   {
-    slug: "cambodian-gem-traders",
-    title: "Cambodian Gem Traders",
-    category: "Portfolio / Business Website",
-    year: "2024",
-    status: "Ongoing Development",
-    stack: ["React", "Vercel", "Modern UI Components"],
-    problem:
-      "The business needed a modern, credible digital presence to reach customers beyond word-of-mouth.",
-    solution:
-      "A responsive, fast-loading platform built with React, establishing a professional online presence with an intuitive, conversion-focused layout.",
-    href: "https://cgt.onl",
-    number: "02",
-    detail: {
-      label: "Business Website",
-      tagline:
-        "A premium online showroom for certified natural gemstones, turning word-of-mouth trust into a credible digital presence.",
-      github: "", // [Add repo URL to show the "View on GitHub" button]
-      devices: {
-        desktop: "/projects/cambodian-gem-traders/desktop.jpg",
-        mobile: "/projects/cambodian-gem-traders/mobile.jpg",
-      },
-      overview: [
-        "Cambodian Gem Traders (CGT) is a business website that showcases a curated collection of certified natural gemstones, from investment stones to fine jewellery pieces.",
-        "[Add a second paragraph: who the client is, what they needed, and how the site helps them sell.]",
-      ],
-      meta: {
-        type: "Business Website / Gem Catalogue",
-        role: "[Add your role, e.g. Full Stack Developer]",
-        platform: "Web (React)",
-      },
-      features: [
-        { icon: "gem", title: "Gemstone Catalogue", text: "Browse certified stones by collection, with origin, carat and pricing." },
-        { icon: "search", title: "Smart Filtering", text: "Search and filter by gem type, price range, colour and treatment." },
-        { icon: "star", title: "Spotlight Listings", text: "Featured high-value stones highlighted at the top of the catalogue." },
-        { icon: "chat", title: "Direct Contact", text: "One-tap WhatsApp and Telegram buttons for instant enquiries." },
-        { icon: "mobile", title: "Fully Responsive", text: "A polished experience on phones, tablets and desktops." },
-        { icon: "lock", title: "[Feature title]", text: "[Describe another feature you built.]" },
-      ],
-      techStack: ["React", "Vercel"],
-      tools: ["GitHub"],
-      gallery: [
-        { src: "/projects/cambodian-gem-traders/desktop.jpg", alt: "CGT catalogue with spotlight listing" },
-        { src: "/projects/cambodian-gem-traders/desktop-2.jpg", alt: "CGT gemstone grid with prices" },
-        { src: "/projects/cambodian-gem-traders/mobile.jpg", alt: "CGT on mobile", mobile: true },
-      ],
-      challenges: [
-        "[Add a key challenge]",
-        "[Add a key challenge]",
-        "[Add a key challenge]",
-      ],
-      solutions: [
-        "[Explain how you solved it]",
-        "[Explain how you solved it]",
-        "[Explain how you solved it]",
-      ],
-      results: [
-        { icon: "rocket", title: "[Result title]", text: "[Describe the impact]" },
-        { icon: "users", title: "[Result title]", text: "[Describe the impact]" },
-        { icon: "chart", title: "[Result title]", text: "[Describe the impact]" },
-      ],
-    },
-  },
-  {
     slug: "montra",
     title: "MONTRA",
     category: "Manufacturing ERP System",
@@ -189,7 +126,7 @@ export const projects = [
     solution:
       "An ERP-style platform for clothing manufacturing that brings production, inventory, and orders into one secure, role-based system.",
     href: "https://montramanufacturing.vercel.app",
-    number: "03",
+    number: "02",
     detail: {
       label: "ERP System",
       tagline:
@@ -251,7 +188,7 @@ export const projects = [
     solution:
       "A pharmacy inventory and POS system with batch and expiry tracking, barcode-ready checkout, returns, reports, and a full audit trail.",
     href: null, // [Add live URL to show the "Live Preview" button]
-    number: "04",
+    number: "03",
     detail: {
       label: "Web Application",
       tagline:
@@ -321,7 +258,7 @@ export const projects = [
     solution:
       "An API-first inventory and POS system with purchasing, a full stock ledger, split payments, returns approval, and thermal printer support.",
     href: "https://dilshan-pos.vercel.app",
-    number: "05",
+    number: "04",
     detail: {
       label: "Web Application",
       tagline:
@@ -393,7 +330,7 @@ export const projects = [
     solution:
       "A new build is taking shape. Check back soon for the next case study.",
     href: null,
-    number: "06",
+    number: "05",
   },
 ];
 
